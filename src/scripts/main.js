@@ -1,31 +1,52 @@
 // Main
 $(document).ready(function () {
-	// Phần Slider
-	$('.home-slider .owl-carousel').owlCarousel({
-		items: 1,
-		nav: false,
-		dots: true,
-		navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-	});
-	// Phần Clients
-	$('.home-clients .owl-carousel').owlCarousel({
-		items: 1,
-		nav: true,
-		dots: false,
-		navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-		responsive: {
-			// breakpoint from 480 up
-			480: {
-				items: 2,
-			},
-			// breakpoint from 768 up
-			768: {
-				items: 4,
-			},
-			// breakpoint from 992 up
-			992: {
-				items: 6,
-			}
-		}
-	});
+    getcountUp()
 });
+
+
+$(window).scroll(function () {
+    getcountUp()
+});
+
+$(window).resize(function () {
+    // getcountUp()
+});
+
+function getcountUp() {
+    $('[data-count]').each(function () {
+        var elm = $(this).offset().top
+        var docS = $(window).scrollTop()
+        // console.log(elm,docS)
+        var docH = $(window).height()
+        // console.log(docH)
+        var num = $(this).attr('data-count')
+        var f = $(this).attr('data-from')
+        var run = false
+        if (elm < ((docS + docH) - 400) && !run) {
+            // console.log(docH,docS, num)
+            // $(this).text(num)
+            var $this = $(this),
+                countTo = num,
+                durationTo = 30000;
+            $({ countNum: $this.text() }).animate({
+                countNum: countTo
+            }, {
+                    duration: durationTo,
+                    easing: 'linear',
+                    step: function () {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function () {
+                        $this.text(this.countNum);
+                        run = true
+                    }
+                });
+        } else {
+            $(this).text(f)
+        }
+
+    })
+
+}
+
+
