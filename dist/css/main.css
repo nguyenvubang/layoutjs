@@ -6336,4 +6336,10 @@ header .navbar-brand img {
 footer img {
   max-width: 200px; }
 
+.home-scroll .main-border {
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000; }
+  .home-scroll .main-border .item.underline {
+    border-bottom: 1px solid #000; }
+
 /*# sourceMappingURL=main.css.map */
