@@ -6336,10 +6336,53 @@ header .navbar-brand img {
 footer img {
   max-width: 200px; }
 
-.home-scroll .main-border {
-  border-bottom: 1px solid #000;
-  border-top: 1px solid #000; }
-  .home-scroll .main-border .item.underline {
-    border-bottom: 1px solid #000; }
+.home-scroll .button {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .home-scroll .button .grid, .home-scroll .button .colum {
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    margin-right: 3rem; }
+
+.home-scroll .block {
+  border-left: 1px solid #a09d9d;
+  border-top: 1px solid #a09d9d; }
+  .home-scroll .block .col-sm-6.col-md-4 {
+    padding-right: 0;
+    padding-left: 0; }
+    .home-scroll .block .col-sm-6.col-md-4 .item {
+      border-bottom: 1px solid #a09d9d;
+      border-right: 1px solid #a09d9d; }
+      .home-scroll .block .col-sm-6.col-md-4 .item figure {
+        position: relative;
+        display: inline-block; }
+        .home-scroll .block .col-sm-6.col-md-4 .item figure .bagde {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          top: 1rem;
+          left: 1rem;
+          background: red;
+          border-radius: 50%;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .home-scroll .block .col-sm-6.col-md-4 .item figure .bagde + .bagde {
+            left: 4rem;
+            background: green; }
+        .home-scroll .block .col-sm-6.col-md-4 .item figure img {
+          width: 100%;
+          padding: 10px; }
+        .home-scroll .block .col-sm-6.col-md-4 .item figure .button {
+          position: absolute;
+          top: 7rem;
+          left: 2rem;
+          width: 80%;
+          height: auto; }
+        .home-scroll .block .col-sm-6.col-md-4 .item figure figcaption {
+          padding: 10px; }
 
 /*# sourceMappingURL=main.css.map */
