@@ -8,56 +8,16 @@ block variables
 
 //- Phần khai báo body
 block body
-	//- Bạn viết code vào đây nhớ là phải mở đầu bằng section ở mỗi khối
-	section.home-scroll
-		.container
+	.seo-gen
+		.container.mt-3
 			.row
 				.col
-					.button
-						.grid.btn.btn-primary
-							span Grid
-						.colum.btn.btn-primary 
-							span Col
-
+					h1 SEO GEN
+					hr
 			.row
-				.col.block
-					.row
-						-for(x=1; x<12; x++)
-							.col-sm-6.col-md-4.cnt
-								.item
-									.hehe.d-none
-										.owl-carousel.owl-theme
-											.item 1111111
-											.item 2222222
-											.item 33333
-											.item j4444
-									figure
-										.bagde
-											span 60%
-										.bagde
-											span Hot
-										img(src="https://images-na.ssl-images-amazon.com/images/I/91uxUEXVsIL._SL1500_.jpg", alt="", srcset="")
-										.button
-											.viewcart.btn.btn-outline-danger.mr-2(data-toggle="modal", data-target="#exampleModalCenter", data-backdrop="static" data-keyboardkeyboard)
-												span Add to Cart
-											.readmore.btn.btn-outline-danger.mr-2
-												span Read more
-										figcaption
-											h2.h2 TThe quick, brown fox jumps over a lazy dog. 
-											.price.mb-3 500$
-											p Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! "Now fax quiz Jack!
-			// Modal
-			#exampleModalCenter.modal(tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
-				.modal-dialog.modal-dialog-centered(role='document')
-					.modal-content
-						.modal-header
-							h2 
-							button.close(type='button', data-dismiss='modal', aria-label='Close')
-								span(aria-hidden='true') ×
-						.modal-body
-							.row
-								.col-5
-								.col-7
-						.modal-footer
-							button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-										button.btn.btn-primary(type='button') Save changes
+				.col
+					#genform
+					//- .input-group.mb-3
+						.input-group-prepend
+							span#basic-addon1.input-group-text @
+						input.form-control(type='text', placeholder='Username', aria-label='Username', aria-describedby='basic-addon1')

@@ -26,23 +26,35 @@ $(function () {
     }
 });
 // Main
-$(document).ready(function () {
-    $('.button .viewcart').each(function () {
-        $(this).click(function () {
-            var getcnt = $(this).parents('.cnt');
-            $('#exampleModalCenter .modal-header h2').html(getcnt.find('h2').html());
-            $('#exampleModalCenter .modal-body .col-7').html(getcnt.find('p').html());
-            $('#exampleModalCenter .modal-body .col-5').html(getcnt.find('.hehe').html());
-            $('#exampleModalCenter .modal-body .col-5 .owl-carousel').removeClass('d-none');
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 10,
-                nav: true
 
-            });
-        });
-    });
-});
+var appSEO = {
+    title: 'Khoá học WP',
+    url: 'demo.com',
+    address: 'Viet Nam',
+    map: {
+        lg: '',
+        ln: ''
+
+    }
+
+};
+
+for (var key in appSEO) {
+    if (appSEO.hasOwnProperty(key)) {
+        // xét Điều Kiện
+        if (typeof appSEO[key] !== 'object') {
+            $('#genform').append(builForm(key, appSEO[key]));
+        }
+        // $('#genform').append(inputTmp)
+    }
+    // console.log(typeof appSEO[key])
+}
+
+function builForm(a, b) {
+    return '<div class="input-group mb-3"> <div class="input-group-prepend"><span class="input-group-text" id="seo-' + key + '">' + key + '</span></div> <input class="form-control" type="text" placeholder="' + appSEO[key] + '" aria-label="Username" aria-describedby="basic-addon1"> </div>';
+}
+
+$(document).ready(function () {});
 
 // Main
 //# sourceMappingURL=main.js.map
