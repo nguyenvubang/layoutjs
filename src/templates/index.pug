@@ -17,7 +17,9 @@ block body
 			.row
 				.col
 					#genform
-					//- .input-group.mb-3
-						.input-group-prepend
-							span#basic-addon1.input-group-text @
-						input.form-control(type='text', placeholder='Username', aria-label='Username', aria-describedby='basic-addon1')
+			.row
+				.col
+					button.btn.btn-primary#seo-button(type="button" onclick="javascript:appSEO.resultForm(this)") Tạo SEO
+			.row
+				.col
+					textarea#result.form-control( cols="30", rows="10")

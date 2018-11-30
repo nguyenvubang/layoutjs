@@ -25,36 +25,54 @@ $(function () {
         $('select.form-control').removeClass('form-control').css('width', '100%');
     }
 });
-// Main
-
 var appSEO = {
-    title: 'Khoá học WP',
-    url: 'demo.com',
-    address: 'Viet Nam',
+    title: 'Tiêu đề trang',
+    url: 'https://demo.com/',
+    address: 'Địa chỉ',
     map: {
-        lg: '',
-        ln: ''
-
-    }
-
-};
-
-for (var key in appSEO) {
-    if (appSEO.hasOwnProperty(key)) {
-        // xét Điều Kiện
-        if (typeof appSEO[key] !== 'object') {
-            $('#genform').append(builForm(key, appSEO[key]));
+        lg: '10.827831',
+        ln: '106.681231',
+        code: 'VN'
+    },
+    initForm: function () {
+        for (var key in appSEO) {
+            if (appSEO.hasOwnProperty(key)) {
+                // Xét ĐK
+                if (typeof appSEO[key] === 'string') {
+                    $('#genform').append(appSEO.buildForm(key, appSEO[key]));
+                } else if (typeof appSEO[key] === 'object') {
+                    for (var k in appSEO[key]) {
+                        if (appSEO[key].hasOwnProperty(k)) {
+                            $('#genform').append(appSEO.buildForm(k, appSEO[key][k]));
+                        }
+                    }
+                }
+            }
         }
-        // $('#genform').append(inputTmp)
+    },
+    buildForm: function (a, b) {
+        return '<div class="input-group mb-3"> <div class="input-group-prepend"><span class="input-group-text">' + a.charAt(0).toUpperCase() + a.slice(1) + '</span></div> <input class="form-control" id="seo-' + a + '" type="text" placeholder="' + b + '" value=" ' + b + '"> </div>';
+    },
+    resultForm: function (e) {
+        for (var key in appSEO) {
+            if (appSEO.hasOwnProperty(key)) {
+                // Xét ĐK
+                if (typeof appSEO[key] === 'string') {
+                    let em = $('#genform #seo-' + key).val();
+                    appSEO[key] = em;
+                } else if (typeof appSEO[key] === 'object') {
+                    for (var k in appSEO[key]) {
+                        if (appSEO[key].hasOwnProperty(k)) {
+                            let emk = $('#genform #seo-' + k).val();
+                            appSEO[key][k] = emk;
+                        }
+                    }
+                }
+            }
+        }
+        console.log(appSEO);
+        $('#result').val(JSON.stringify(appSEO));
     }
-    // console.log(typeof appSEO[key])
-}
-
-function builForm(a, b) {
-    return '<div class="input-group mb-3"> <div class="input-group-prepend"><span class="input-group-text" id="seo-' + key + '">' + key + '</span></div> <input class="form-control" type="text" placeholder="' + appSEO[key] + '" aria-label="Username" aria-describedby="basic-addon1"> </div>';
-}
-
-$(document).ready(function () {});
-
-// Main
+};
+appSEO.initForm();
 //# sourceMappingURL=main.js.map
